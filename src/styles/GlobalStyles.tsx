@@ -1,4 +1,5 @@
 import {createGlobalStyle} from "styled-components";
+import {theme} from "./Theme.styled";
 
 export const GlobalStyles = createGlobalStyle`
   *,
@@ -11,6 +12,22 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     //background-color: #111111;
-    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    color: ${theme.colors.font};
+    line-height: 1.2;
+  }
+
+  a {
+    text-decoration: none;
+  }
+  
+  button {
+    background-color: unset;
+    border: none;
+  }
+
+  ul, ol {
+    list-style: none;
   }
 `

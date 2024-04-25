@@ -1,82 +1,3 @@
-// import React, {Children, cloneElement, FC, ReactElement, useEffect, useState} from 'react';
-// import styled from 'styled-components';
-// import {Button} from "../button/Button";
-//
-// // Стилизованные компоненты
-// const SliderContainer = styled.div`
-//   width: 100%;
-//   overflow: hidden;
-// `;
-//
-// type SliderPropsType = {
-//     children: React.ReactNode
-// }
-//
-// const PAGE_WIDTH = 450
-//
-// export const Slider: FC<SliderPropsType> = ({ children }) => {
-//     // Define the state with the correct type using ReactElement[]
-//     const [pages, setPages] = useState<ReactElement[]>([]);
-//     const [offset, setOffset] = useState(0);
-//
-//     console.log('Children', Children)
-//
-//     useEffect(() => {
-//         // Use Children.map to transform the children and filter out null values
-//         Children.toArray.length !==0 ? setPages(
-//             Children?.map(children, (child) => {
-//                 if (React.isValidElement(child)) {
-//                     return cloneElement(child, {
-//                         style: {
-//                             height: '100%',
-//                             minWidth: `${PAGE_WIDTH}px`,
-//                             maxWidth: `${PAGE_WIDTH}px`,
-//                         },
-//                     });
-//                 }
-//                 : return null;
-//             }).filter((child)=> child !== null) as ReactElement[]
-//         );
-//     }, [children]);
-//
-//     const nextSlide = (): void => {
-//         setOffset(currentOffset => currentOffset - PAGE_WIDTH);
-//     };
-//
-//     const prevSlide = (): void => {
-//         setOffset(currentOffset => currentOffset + PAGE_WIDTH);
-//     };
-//
-//     return (
-//         <SliderContainer>
-//             <div>
-//                 {/* Fix the inline style for transform to use template literals correctly */}
-//                 <div style={{ transform: `translateX(${offset}px)`}}>{pages}</div>
-//             </div>
-//             <WrapperBtn>
-//                 <SliderBtn onClick={prevSlide} name={'Prev'}/>
-//                 <SliderBtn onClick={nextSlide} name={'Next'}/>
-//             </WrapperBtn>
-//         </SliderContainer>
-//     );
-// };
-//
-// // Styled components for WrapperBtn, SliderBtn
-// // ...
-//
-//
-// const WrapperBtn = styled.div`
-//   position: absolute;
-//   top: 510px;
-//   left: 110px;
-// `
-//
-// const SliderBtn = styled(Button)`
-//   width: 45px;
-//   height: 45px;
-// `
-
-
 import React, {useState} from 'react';
 import styled from "styled-components";
 import Countertops from '../assets/images/countertops.png'
@@ -124,12 +45,12 @@ export const Slider: React.FC = () => {
     return (
         <StyledSlider>
             <ContainerBtn>
-                <Button onClick={goToPrevSlide}><Icon iconId='arrow' width={'16.67'} height={'16.67'}/></Button>
-                <Button onClick={goToNextSlide}><RightIcon iconId='arrow' width={'16.67'} height={'16.67'}/></Button>
+                <SliderButton onClick={goToPrevSlide}><Icon iconId='arrow' width={'16.67'} height={'16.67'}/></SliderButton>
+                <SliderButton onClick={goToNextSlide}><RightIcon iconId='arrow' width={'16.67'} height={'16.67'}/></SliderButton>
             </ContainerBtn>
             <ImageContainer>
                 <img src={slides[currentSlide].image} alt={slides[currentSlide].caption}/>
-                <div className="caption">{slides[currentSlide].caption}</div>
+                {/*<div className="caption">{slides[currentSlide].caption}</div>*/}
             </ImageContainer>
         </StyledSlider>
     );
@@ -137,18 +58,23 @@ export const Slider: React.FC = () => {
 
 
 const StyledSlider = styled.div`
-  position: absolute;
-  top: 0;
+  //position: absolute;
+  //top: 0;
+  //right: 0;
+  //width: 100%;
+  //height: 100%;
 `
 
 const ContainerBtn = styled.div`
   display: flex;
-  position: absolute;
-  top: 525px;
-  left: 110px;
+  //position: absolute;
+  gap: 7px;
+  //top: 445px;
+  //left: 110px;
+  z-index: 2;
 `
 
-const Button = styled.button`
+export const SliderButton = styled.button`
   cursor: pointer;
   width: 45px;
   height: 45px;
@@ -156,7 +82,7 @@ const Button = styled.button`
   background-color: transparent;
 
   &:last-child {
-    margin-left: 7px;
+    //margin-left: 7px;
 
     svg {
       transform: rotate(180deg);
@@ -172,11 +98,20 @@ const Button = styled.button`
 
 const ImageContainer = styled.div`
   //position: absolute;
-  //top: 0;
+  //top: 150px;
   //right: 0;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
 `
 
-const RightIcon = styled(Icon)`
+export const RightIcon = styled(Icon)`
   svg {
     transform: rotate(180deg);
   }

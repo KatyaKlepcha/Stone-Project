@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {Logo} from "../../components/logo/Logo";
 import {Telephone} from "../../components/telephone/Telephone";
 import {Icon} from "../../components/icon/Icon";
+import ArrowUp from '../../components/assets/images/arrowUp.svg'
 
 export const Footer = () => {
     return (
@@ -55,7 +56,24 @@ const StyledFooter = styled.footer`
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 1);
+  position: relative;
+
+  &:after {
+    content: '';
+    cursor: pointer;
+    background-image: url(${ArrowUp});
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(40, 85, 63, 1);
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+  }
 `
+
 
 const Information = styled.ul`
   display: flex;
@@ -78,7 +96,6 @@ const Slogan = styled.div`
 
 const Menu = styled.ul`
   text-transform: uppercase;
-  list-style: none;
 `
 
 const Title = styled.h5`
@@ -98,12 +115,10 @@ const Item = styled.li`
 
 const Catalog = styled.ul`
   text-transform: uppercase;
-  list-style: none;
 `
 
 const Contacts = styled.ul`
   text-transform: uppercase;
-  list-style: none;
 `
 
 const Mail = styled.span`
@@ -116,7 +131,6 @@ const Address = styled.div`
 `
 
 const SocialList = styled.ul`
-  list-style: none;
   display: flex;
   justify-content: space-between;
   margin-top: 24px;

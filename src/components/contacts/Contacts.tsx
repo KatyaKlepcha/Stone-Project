@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const Contacts = () => {
     return (
         <StyledContacts>
-            <Icon iconId={'viber'} width={'20'} height={'20'}/>
+            <ViberLink><Icon iconId={'viber'} width={'20'} height={'20'}/></ViberLink>
             <Icon iconId={'phone'} width={'20'} height={'20'}/>
             <span>+7 (499) 258-625-33</span>
             <IconContact iconId = {'search'} width={'23'} height={'23'}/>
@@ -15,8 +15,7 @@ export const Contacts = () => {
 
 export const StyledContacts = styled.div`
   display: flex;
-  justify-content: flex-end;
-  margin-right: 103px;
+  align-self: flex-end;
   
   svg:first-child {
     margin-right: 17px;
@@ -29,6 +28,10 @@ export const StyledContacts = styled.div`
   svg:last-child{
     margin-left: 20px;
   }
+`
+
+const ViberLink = styled.a`
+    cursor: pointer;
 `
 
 const IconContact = styled(Icon)`
