@@ -1,19 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
 import {Button} from "../../../../components/button/Button";
+import {Modal} from "../../../modal/Modal";
+import {theme} from "../../../../styles/Theme.styled";
 
 export const Information = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
     return (
+        <>
             <StyledInformation>
                 <Tagline>Камень с душой</Tagline>
                 <Title>Каменные изделия
                     <TitleSpan>для вашего дома</TitleSpan>
                 </Title>
                 <WrapperBtn>
-                    <InfoBtn name={'Рассчитать стоимость'}/>
-                    <InfoBtn name={'Связаться с нами'} color={'rgba(255, 255, 255, 0.03)'}/>
+                    <InfoBtn onClick={openModal} name={'Рассчитать стоимость'}/>
+                    <InfoBtn background={'rgba(255, 255, 255, 0.03)'} name={'Связаться с нами'}/>
                 </WrapperBtn>
             </StyledInformation>
+            <Modal isOpen={isModalOpen} setIsOpen={setIsModalOpen}/>
+        </>
     );
 };
 
@@ -53,7 +64,7 @@ const Title = styled.h1`
 
 const TitleSpan = styled.span`
   display: inline-block;
-  color: rgba(40, 85, 63, 1);
+  color: ${theme.colors.accent};
 `
 
 const WrapperBtn = styled.div`

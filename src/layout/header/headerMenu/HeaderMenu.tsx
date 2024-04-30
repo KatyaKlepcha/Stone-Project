@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import styled from "styled-components";
+import {Link, Text} from "../../../components/link/Link";
 
 type HeaderMenuPropsType = {
     menuItems: Array<string>;
@@ -12,7 +13,7 @@ export const HeaderMenu: FC<HeaderMenuPropsType> = ({menuItems}) => {
             <ul>
                 {menuItems.map((item, index) => {
                     return (
-                        <ListItem key={index}><Link href={''}>{item}</Link></ListItem>
+                        <ListItem key={index}><LinkMenu text={item}/></ListItem>
                     )
                 })}
             </ul>
@@ -37,7 +38,11 @@ const ListItem = styled.li`
 
 `
 
-const Link = styled.a`
-  text-transform: uppercase;
-  color: #fff;
+const LinkMenu = styled(Link)`
+
+  ${Text} {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
 `

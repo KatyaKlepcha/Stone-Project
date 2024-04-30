@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import styled from "styled-components";
+import {theme} from "../../styles/Theme.styled";
 
 type SectionHeaderPropsType = {
     children: React.ReactNode
@@ -23,12 +24,12 @@ export const TitleSectionHeader = styled.h3`
     display: block;
     width: 120px;
     height: 1px;
-    background-color: rgba(40, 85, 63, 1);
+    background-color: ${theme.colors.accent};
     position: absolute;
     margin-top: -9px;
   }
 
   div {
-    color: rgba(40, 85, 63, 1);
+    color: ${theme.colors.accent};
   }
 `

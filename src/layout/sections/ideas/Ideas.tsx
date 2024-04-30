@@ -5,10 +5,11 @@ import Ideas3Img from '../../../components/assets/images/inspirationSources/Idea
 import Ideas4Img from '../../../components/assets/images/inspirationSources/Idea4.png'
 import Ideas5Img from '../../../components/assets/images/inspirationSources/Idea5.png'
 import {SectionHeader} from "../../../components/sectionHeader/SectionHeader";
-import {SeeAll} from "../../../components/seeAll/SeeAll";
+import {Link, Text} from "../../../components/link/Link";
 import styled from "styled-components";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
+import {theme} from "../../../styles/Theme.styled";
 
 export const Ideas = () => {
     return (
@@ -23,7 +24,7 @@ export const Ideas = () => {
                         <img src={`${Ideas4Img}`} alt={'Idea4Photo'}></img>
                         <img src={`${Ideas5Img}`} alt={'Idea5Photo'}></img>
                     </ImageWrapper>
-                    <SeeAllIdeas text={'Смотреть еще больше фотографий'}></SeeAllIdeas>
+                    <LinkIdeas text={'Смотреть еще больше фотографий'} isIcon={true}/>
 
                 </FlexWrapper>
             </Container>
@@ -33,7 +34,7 @@ export const Ideas = () => {
 
 const StyledIdeas = styled.section`
   a > p {
-    color: rgba(255, 255, 255, 1);
+    color: ${theme.colors.font};
     font-size: 18px;
     line-height: 52px;
     font-weight: 400;
@@ -41,7 +42,7 @@ const StyledIdeas = styled.section`
   }
 
   svg {
-    fill: rgba(255, 255, 255, 1);
+    fill: ${theme.colors.font};
   }
   
   ${Container} {
@@ -66,29 +67,19 @@ const ImageWrapper = styled.div`
     grid-column: span 1;
     grid-row: 1/ span 2
   }
-
-  //img:nth-child(2) {
-  //  grid-column: span 1;
-  //}
-  //
-  //img:nth-child(3) {
-  //  grid-column: span 1;
-  //}
-  //
-  //img:nth-child(4) {
-  //  grid-column: span 1;
-  //  grid-row: span 1;
-  //}
-  //
-  //img:nth-child(5) {
-  //  grid-column: span 1;
-  //  grid-row: span 1;
-  //}
 `
 
-const SeeAllIdeas = styled(SeeAll)`
-  background-color: rgba(40, 85, 63, 1);
-  padding: 26px 28px;
-  max-width: 405px;
+const LinkIdeas = styled(Link)`
+  background-color: ${theme.colors.accent};
+  padding: 0 28px;
   align-self: flex-end;
+  
+  ${Text} {
+    text-transform: lowercase;
+    padding: 0;
+    
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
 `

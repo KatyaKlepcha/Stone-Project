@@ -1,41 +1,41 @@
 import React from 'react';
-import {Button} from "../../../components/button/Button";
 import {ProductCard} from "./productCard/ProductCard";
 import styled from "styled-components";
 import {SectionHeader, TitleSectionHeader} from "../../../components/sectionHeader/SectionHeader";
 import SaleBgImage from "../../../components/assets/images/shells.png"
-import {SeeAll} from "../../../components/seeAll/SeeAll";
+import {Link, Text} from "../../../components/link/Link";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
+import {theme} from "../../../styles/Theme.styled";
 
 export const Sale = () => {
     return (
         <StyledShells>
             <Container>
                 <FlexWrapper direction={'column'} align={'flex-end'}>
-                        <SeeAll text={'смотреть все'}/>
+                    <Link text={'смотреть все'} isIcon={true} />
                         <Block>
-                            <CurrentSalesWrapper>
-                                <SectionHeader>Актуальные акции <div>на <span>нашу продукцию</span></div>
-                                </SectionHeader>
-                                <SaleText>Учитывая ключевые сценарии поведения, обучения кадров влечет за собой процесс
-                                    внедрения и
-                                    модернизации
-                                    распределения</SaleText>
-                                <Button name={'перейти в каталог'}></Button>
-                            </CurrentSalesWrapper>
-                            <ProductCardWrapper>
-                                <ProductCard/>
-                                <ProductCard/>
-                                <ProductCard/>
-                                <ProductCard/>
-                            </ProductCardWrapper>
-                        </Block>
-                </FlexWrapper>
-            </Container>
-        </StyledShells>
-    )
-        ;
+                        <CurrentSalesWrapper>
+                        <SectionHeader>Актуальные акции <div>на <span>нашу продукцию</span></div>
+                        </SectionHeader>
+                        <SaleText>Учитывая ключевые сценарии поведения, обучения кадров влечет за собой процесс
+                        внедрения и
+                        модернизации
+                        распределения</SaleText>
+                        <LinkSale text={'перейти в каталог'}/>
+                </CurrentSalesWrapper>
+                <ProductCardWrapper>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                    <ProductCard/>
+                </ProductCardWrapper>
+            </Block>
+        </FlexWrapper>
+</Container>
+</StyledShells>
+)
+    ;
 };
 
 const StyledShells = styled.section`
@@ -70,12 +70,12 @@ const StyledShells = styled.section`
     position: relative;
     z-index: 3;
   }
-
 `
 
 const Block = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 20px;
 `
 
 const CurrentSalesWrapper = styled.div`
@@ -89,15 +89,27 @@ const CurrentSalesWrapper = styled.div`
   max-width: 708px;
 
   div > div {
-    color: rgba(40, 85, 63, 1);
+    color: ${theme.colors.accent};
   }
 
   ${TitleSectionHeader}, div {
-    color: rgba(255, 255, 255, 1);
+    color: ${theme.colors.font};
 
     span {
-      color: rgba(40, 85, 63, 1);
+      color: ${theme.colors.accent};
     }
+  }
+`
+
+const LinkSale = styled(Link)`
+  background-color: ${theme.colors.accent};
+  padding: 21px 40px;
+  max-width: 238px;
+  width: 100%;
+  
+  ${Text} {
+    font-size: 15px;
+    line-height: 18px;
   }
 `
 

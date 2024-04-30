@@ -9,6 +9,5 @@ export const theme = {
         primaryBg: 'rgba(223, 223, 223, 0.18)',
 
         font: 'rgba(255, 255, 255, 1)',
-
     }
 }

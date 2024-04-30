@@ -1,28 +1,26 @@
-import React, {FC, ReactElement} from 'react';
+import React, {FC} from 'react';
 import styled from "styled-components";
 import {theme} from "../../styles/Theme.styled";
 
 type ButtonType = {
-    name: string | ReactElement
+    name: string
     className?: string
     onClick?: () => void
     color?: string
     background?: string
 }
 
-export const Button: FC<ButtonType> = ({name, className, onClick, color}) => {
+export const Button: FC<ButtonType> = ({name, className, onClick, color, background}) => {
     return (
-        <StyledButton className={className} onClick={onClick} color={color} >
-            {name}
-        </StyledButton>
+        <StyledButton className={className} name={name} onClick={onClick} color={color}
+                      background={background}>{name} </StyledButton>
     )
 };
 
 
-export const StyledButton = styled.button`
-  border: none;
+export const StyledButton = styled.button<ButtonType>`
   cursor: pointer;
   text-transform: uppercase;
   color: ${props => props.color || theme.colors.font};
-  background: ${props => props.color || theme.colors.accent};
+  background: ${props => props.background || theme.colors.accent};
 `

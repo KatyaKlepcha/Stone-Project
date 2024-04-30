@@ -7,9 +7,10 @@ import WindowSills from '../../../components/assets/images/windowSills.png'
 import Shells from '../../../components/assets/images/shells.png'
 import Panel from '../../../components/assets/images/panel.png'
 import {SectionHeader, TitleSectionHeader} from "../../../components/sectionHeader/SectionHeader";
-import {SeeAll, StyledSeeAll} from "../../../components/seeAll/SeeAll";
+import {Link, StyledLink} from "../../../components/link/Link";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
+import {theme} from "../../../styles/Theme.styled";
 
 export const StoneProducts = () => {
     return (
@@ -25,7 +26,7 @@ export const StoneProducts = () => {
                                 <Button><RightIcon iconId='arrow' width={'16.67'} height={'16.67'}/></Button>
                             </ContainerBtn>
                         </HeaderWrapper>
-                        <SeeAll text={'смотреть все'}/>
+                        <Link text={'смотреть все'} color={'rgba(40, 42, 48, 1)'} isIcon={true}/>
                     </TitleBlock>
                     <Grid>
                         <PictureContainer><StyledCountertops src={`${Countertops}`} alt={'Cтолешницы'}/>
@@ -62,7 +63,7 @@ const TitleBlock = styled.div`
   flex-direction: column;
   margin-bottom: 40px;
 
-  ${StyledSeeAll} {
+  ${StyledLink} {
     margin-top: 60px;
     align-self: flex-end;
   }
@@ -75,6 +76,7 @@ const Title = styled.h2`
 const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 40px;
 
   ${TitleSectionHeader} {
 
@@ -82,7 +84,7 @@ const HeaderWrapper = styled.div`
       color: rgba(40, 42, 48, 1);
       
       span {
-        color: rgba(40, 85, 63, 1);
+        color: ${theme.colors.accent};
       }
     }
   }
@@ -125,9 +127,10 @@ const Signature = styled.div`
   bottom: 18px;
   text-transform: uppercase;
   background: linear-gradient(177.34deg, rgba(0, 0, 0, 0.87) 2.22%, rgba(0, 0, 0, 0.5481) 97.78%);
-  color: rgba(255, 255, 255, 1);
+  color: ${theme.colors.font};
   padding: 11px 140px;
   max-width: 470px;
+  width: 100%;
 `
 
 const Grid = styled.div`

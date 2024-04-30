@@ -3,6 +3,7 @@ import BgFormImg from '../../../components/assets/images/BgFormImg.png'
 import styled from "styled-components";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
+import {theme} from "../../../styles/Theme.styled";
 
 
 export const Form = () => {
@@ -102,7 +103,7 @@ const StyledForm = styled.form`
 
   input[type='submit'] {
     padding: 15px 80px 17px;
-    background-color: rgba(255, 255, 255, 1);;
+    background-color: ${theme.colors.font};
   }
 `
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import ProductImage from '../../../../components/assets/images/product.png'
+import {theme} from "../../../../styles/Theme.styled";
+import {Link, Text} from "../../../../components/link/Link";
 
 export const ProductCard = () => {
     return (
@@ -14,7 +16,7 @@ export const ProductCard = () => {
                     <OldPrice>16 490 руб</OldPrice>
                 </PriceWrapper>
             </Description>
-            <MoreDetails>Подробнее</MoreDetails>
+            <LinkCard text={'Подробнее'}/>
         </StyledProductCard>
     );
 };
@@ -49,7 +51,7 @@ const Description = styled.div`
 `
 
 const Shortly = styled.div`
-  color: rgba(40, 85, 63, 1);
+  color: ${theme.colors.accent};
   margin-bottom: 4px;
 `
 
@@ -65,7 +67,7 @@ const PriceWrapper = styled.div`
 `
 
 const Price = styled.div`
-  color: rgba(40, 85, 63, 1);
+  color: ${theme.colors.accent};
 `
 
 const OldPrice = styled.span`
@@ -73,9 +75,19 @@ const OldPrice = styled.span`
   text-decoration: line-through;
 `
 
-const MoreDetails = styled.a`
-  background-color: rgba(40, 85, 63, 1);
+const LinkCard = styled(Link)`
+  background-color: ${theme.colors.accent};
   display: block;
   width: 100%;
   padding: 10px 77px;
+
+  ${Text} {
+    font-size: 17px;
+    line-height: 20px;
+    text-transform: lowercase;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
 `

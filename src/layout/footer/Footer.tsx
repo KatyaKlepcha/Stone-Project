@@ -4,6 +4,7 @@ import {Logo} from "../../components/logo/Logo";
 import {Telephone} from "../../components/telephone/Telephone";
 import {Icon} from "../../components/icon/Icon";
 import ArrowUp from '../../components/assets/images/arrowUp.svg'
+import {theme} from "../../styles/Theme.styled";
 
 export const Footer = () => {
     return (
@@ -66,14 +67,13 @@ const StyledFooter = styled.footer`
     background-repeat: no-repeat;
     width: 60px;
     height: 60px;
-    background-color: rgba(40, 85, 63, 1);
+    background-color: ${theme.colors.accent};
     position: absolute;
     border-radius: 50%;
     top: 0;
     right: 0;
   }
 `
-
 
 const Information = styled.ul`
   display: flex;
