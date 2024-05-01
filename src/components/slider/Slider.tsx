@@ -1,118 +1,92 @@
-import React, {useState} from 'react';
+import React from 'react';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 import styled from "styled-components";
-import Countertops from '../assets/images/countertops.png'
+import Countertops from '../assets/images/Countertops.png'
 import WindowSills from '../assets/images/windowSills.png'
-import Sink from '../assets/images/sink.png'
-import {Icon} from "../icon/Icon";
+import Shells from '../assets/images/shells.png'
+import {theme} from "../../styles/Theme.styled";
 
-interface Slide {
-    id: number;
-    image: string;
-    caption: string;
-}
+const items = [
+    <img src={Countertops} alt={'Countertops'}/>,
+    <img src={WindowSills} alt={'WindowSills'}/>,
+    <img src={Shells} alt={'Sink'}/>,
+];
 
-export const Slider: React.FC = () => {
-    const slides: Slide[] = [
-        {
-            id: 1,
-            image: `${Countertops}`,
-            caption: 'Slide 1',
-        },
-        {
-            id: 2,
-            image: `${WindowSills}`,
-            caption: 'Slide 2',
-        },
-        {
-            id: 3,
-            image: `${Sink}`,
-            caption: 'Slide 3',
-        },
-    ];
-
-    const [currentSlide, setCurrentSlide] = useState(0);
-
-    const goToNextSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    };
-
-    const goToPrevSlide = () => {
-        setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
-    };
-
-    console.log('slides[currentSlide].image', slides[currentSlide].image)
-
-    return (
-        <StyledSlider>
-            <ContainerBtn>
-                <SliderButton onClick={goToPrevSlide}><Icon iconId='arrow' width={'16.67'} height={'16.67'}/></SliderButton>
-                <SliderButton onClick={goToNextSlide}><RightIcon iconId='arrow' width={'16.67'} height={'16.67'}/></SliderButton>
-            </ContainerBtn>
-            <ImageContainer>
-                <img src={slides[currentSlide].image} alt={slides[currentSlide].caption}/>
-                {/*<div className="caption">{slides[currentSlide].caption}</div>*/}
-            </ImageContainer>
-        </StyledSlider>
-    );
-};
-
+export const Slider = () => (
+    <StyledSlider>
+        <AliceCarousel
+            mouseTracking
+            items={items}
+        />
+    </StyledSlider>
+);
 
 const StyledSlider = styled.div`
-  //position: absolute;
-  //top: 0;
-  //right: 0;
-  //width: 100%;
-  //height: 100%;
-`
-
-const ContainerBtn = styled.div`
+  width: 100%;
+  max-width: 978px;
   display: flex;
-  //position: absolute;
-  gap: 7px;
-  //top: 445px;
-  //left: 110px;
-  z-index: 2;
-`
+  align-items: center;
+  justify-content: center;
 
-export const SliderButton = styled.button`
-  cursor: pointer;
-  width: 45px;
-  height: 45px;
-  border: 0.5px solid rgba(255, 255, 255, 1);
-  background-color: transparent;
+  .alice-carousel {
+    position: unset;
 
-  &:last-child {
-    //margin-left: 7px;
-
-    svg {
-      transform: rotate(180deg);
+    &__stage-item img {
+      transform: unset;
     }
-  }
-  
-  &:active {
-    background-color: rgba(40, 85, 63, 1);
-    border: none;
-    box-sizing: border-box;
-  }
-`
 
-const ImageContainer = styled.div`
-  //position: absolute;
-  //top: 150px;
-  //right: 0;
-  height: 100%;
+    .alice-carousel__dots {
+      position: absolute;
+      left: 0;
+      bottom: 30px;
+    }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    .alice-carousel__dots-item:not(.__custom) {
+      width: 40px;
+      height: 3px;
+      border-radius: unset;
 
+      &.__active {
+        background-color: ${theme.colors.accent};
+      }
+    }
 
-`
+    .alice-carousel__prev-btn, .alice-carousel__next-btn {
+      text-align: center;
+      position: absolute;
+      bottom: 70px;
+      width: unset;
+    }
 
-export const RightIcon = styled(Icon)`
-  svg {
-    transform: rotate(180deg);
-  }
+    .alice-carousel__prev-btn {
+      left: 0;
+    }
+
+    .alice-carousel__next-btn {
+      left: 50px;
+    }
+
+    .alice-carousel__next-btn-item, .alice-carousel__prev-btn-item {
+      color: ${theme.colors.font};
+      width: 45px;
+      height: 45px;
+      border: 1px solid ${theme.colors.font};
+
+      &.__active {
+        background-color: ${theme.colors.accent};
+        border: none;
+      }
+      
+      //[data-area] {
+      //  position: relative;
+      //
+      //  ::after {
+      //    position: absolute;
+      //    transform: translate(-50%, 50%);
+      //    width: 10px;
+      //    height: 16px;
+      //  }
+      //}
+    }
 `

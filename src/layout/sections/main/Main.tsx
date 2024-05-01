@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from "styled-components";
-import Frame from '../../../components/assets/images/Frame.png'
 import {Information} from "./information/Information";
 import {Slider} from "../../../components/slider/Slider";
 import BgImage from "../../../components/assets/images/Rectangle.png"
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {Container} from "../../../components/Container";
-import Ideas1Img from '../../../components/assets/images/inspirationSources/placeholder6.png'
 
 export const SectionMain = () => {
     return (
@@ -14,7 +12,7 @@ export const SectionMain = () => {
             <Container>
                 <FlexWrapper align={'center'} justify={'flex-end'}>
                     <Information/>
-                    {/*<Slider/>*/}
+                    <Slider/>
                     {/*<SliderItem/>*/}
                     {/*<SliderItem/>*/}
                     {/*<SliderItem/>*/}

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Icon} from "../../../components/icon/Icon";
-import {RightIcon, SliderButton} from "../../../components/slider/Slider";
+// import {RightIcon, SliderButton} from "../../../components/slider/Slider";
 import styled from "styled-components";
-import Countertops from '../../../components/assets/images/countertops.png'
+import Countertops from '../../../components/assets/images/Countertops.png'
 import WindowSills from '../../../components/assets/images/windowSills.png'
 import Shells from '../../../components/assets/images/shells.png'
 import Panel from '../../../components/assets/images/panel.png'
@@ -22,8 +22,8 @@ export const StoneProducts = () => {
                             <SectionHeader>Изделия
                                 <div>из <span>натурального камня</span></div></SectionHeader>
                             <ContainerBtn>
-                                <Button><Icon iconId='arrow' width={'16.67'} height={'16.67'}/></Button>
-                                <Button><RightIcon iconId='arrow' width={'16.67'} height={'16.67'}/></Button>
+                                {/*<Button><Icon iconId='arrow' width={'16.67'} height={'16.67'}/></Button>*/}
+                                {/*<Button><RightIcon iconId='arrow' width={'16.67'} height={'16.67'}/></Button>*/}
                             </ContainerBtn>
                         </HeaderWrapper>
                         <Link text={'смотреть все'} color={'rgba(40, 42, 48, 1)'} isIcon={true}/>
@@ -94,13 +94,13 @@ const ContainerBtn = styled.div`
   align-self: flex-end;
 `
 
-const Button = styled(SliderButton)`
-  border: 1px solid rgba(229, 229, 229, 1);
-
-  svg {
-    fill: rgba(177, 177, 177, 1);
-  }
-`
+// const Button = styled(SliderButton)`
+//   border: 1px solid rgba(229, 229, 229, 1);
+//
+//   svg {
+//     fill: rgba(177, 177, 177, 1);
+//   }
+// `
 
 const PictureContainer = styled.div`
   position: relative;
