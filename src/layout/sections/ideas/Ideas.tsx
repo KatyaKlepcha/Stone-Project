@@ -5,7 +5,7 @@ import Ideas3Img from '../../../components/assets/images/inspirationSources/Idea
 import Ideas4Img from '../../../components/assets/images/inspirationSources/Idea4.png'
 import Ideas5Img from '../../../components/assets/images/inspirationSources/Idea5.png'
 import {SectionHeader} from "../../../components/sectionHeader/SectionHeader";
-import {Link, Text} from "../../../components/link/Link";
+import {CommonLink, Text} from "../../../components/link/Link";
 import styled from "styled-components";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
@@ -24,7 +24,7 @@ export const Ideas = () => {
                         <img src={`${Ideas4Img}`} alt={'Idea4Photo'}></img>
                         <img src={`${Ideas5Img}`} alt={'Idea5Photo'}></img>
                     </ImageWrapper>
-                    <LinkIdeas text={'Смотреть еще больше фотографий'} isIcon={true}/>
+                    <LinkIdeas to={'/'} text={'Смотреть еще больше фотографий'} isIcon={true}/>
 
                 </FlexWrapper>
             </Container>
@@ -69,7 +69,7 @@ const ImageWrapper = styled.div`
   }
 `
 
-const LinkIdeas = styled(Link)`
+const LinkIdeas = styled(CommonLink)`
   background-color: ${theme.colors.accent};
   padding: 0 28px;
   align-self: flex-end;

@@ -2,7 +2,15 @@ import React from 'react';
 import styled from "styled-components";
 import ProductImage from '../../../../components/assets/images/product.png'
 import {theme} from "../../../../styles/Theme.styled";
-import {Link, Text} from "../../../../components/link/Link";
+import {CommonLink, Text} from "../../../../components/link/Link";
+
+type ProductCardPropsType = {
+    image: string
+    shortName: string
+    description: string
+    newPrice: number
+    oldPrice: number
+}
 
 export const ProductCard = () => {
     return (
@@ -16,7 +24,7 @@ export const ProductCard = () => {
                     <OldPrice>16 490 руб</OldPrice>
                 </PriceWrapper>
             </Description>
-            <LinkCard text={'Подробнее'}/>
+            <LinkCard text={'Подробнее'} to={'/'}/>
         </StyledProductCard>
     );
 };
@@ -26,6 +34,7 @@ const StyledProductCard = styled.div`
   padding: 14px 18px 15px 17px;
   background-color: rgba(255, 255, 255, 0.96);
   position: relative;
+  box-shadow: 0 4px 47px -2px rgba(0, 0, 0, 0.25);
 `
 
 const ContainerImg = styled.div`
@@ -75,7 +84,7 @@ const OldPrice = styled.span`
   text-decoration: line-through;
 `
 
-const LinkCard = styled(Link)`
+const LinkCard = styled(CommonLink)`
   background-color: ${theme.colors.accent};
   display: block;
   width: 100%;

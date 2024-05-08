@@ -6,13 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import {GlobalStyles} from "./styles/GlobalStyles";
 import {ThemeProvider} from "styled-components";
 import {theme} from "./styles/Theme.styled";
+import {Router} from "./routes";
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
     <ThemeProvider theme={theme}>
-        <App/>
+        <Router/>
         <GlobalStyles/>
     </ThemeProvider>
 );

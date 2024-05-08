@@ -1,21 +1,17 @@
-import React, {FC} from 'react';
+import React from 'react';
 import styled from "styled-components";
-import {Link, Text} from "../../../components/link/Link";
+import {CommonLink, Text} from "../../../components/link/Link";
 
-type HeaderMenuPropsType = {
-    menuItems: Array<string>;
-}
-
-export const HeaderMenu: FC<HeaderMenuPropsType> = ({menuItems}) => {
+export const HeaderMenu = () => {
 
     return (
         <StyledHeaderMenu>
             <ul>
-                {menuItems.map((item, index) => {
-                    return (
-                        <ListItem key={index}><LinkMenu text={item}/></ListItem>
-                    )
-                })}
+                <ListItem><LinkMenu text={'каталог'} to={'/catalog'}/></ListItem>
+                <ListItem><LinkMenu text={'акции'} to={'/sale'}/></ListItem>
+                <ListItem><LinkMenu text={'блог'} to={'/'}/></ListItem>
+                <ListItem><LinkMenu text={'сотрудничество'} to={'/'}/></ListItem>
+                <ListItem><LinkMenu text={'оплата и доставка'} to={'/'}/></ListItem>
             </ul>
         </StyledHeaderMenu>
     );
@@ -25,11 +21,12 @@ export const StyledHeaderMenu = styled.nav`
   display: flex;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 1);
-  margin-top: 38px;
+  //margin-top: 24px;
   padding: 13px 0 14px 38px;
 
   ul {
     display: flex;
+    align-items: center;
     gap: 90px;
   }
 `
@@ -38,7 +35,11 @@ const ListItem = styled.li`
 
 `
 
-const LinkMenu = styled(Link)`
+const LinkMenu = styled(CommonLink)`
+  
+  &:visited {
+    border-bottom: 2px solid rgba(255, 255, 255, 1);
+  }
 
   ${Text} {
     font-size: 18px;

@@ -3,7 +3,7 @@ import {ProductCard} from "./productCard/ProductCard";
 import styled from "styled-components";
 import {SectionHeader, TitleSectionHeader} from "../../../components/sectionHeader/SectionHeader";
 import SaleBgImage from "../../../components/assets/images/shells.png"
-import {Link, Text} from "../../../components/link/Link";
+import {CommonLink, Text} from "../../../components/link/Link";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme.styled";
@@ -13,29 +13,29 @@ export const Sale = () => {
         <StyledShells>
             <Container>
                 <FlexWrapper direction={'column'} align={'flex-end'}>
-                    <Link text={'смотреть все'} isIcon={true} />
-                        <Block>
+                    <CommonLink text={'смотреть все'} isIcon={true} to={'/catalog'}/>
+                    <Block>
                         <CurrentSalesWrapper>
-                        <SectionHeader>Актуальные акции <div>на <span>нашу продукцию</span></div>
-                        </SectionHeader>
-                        <SaleText>Учитывая ключевые сценарии поведения, обучения кадров влечет за собой процесс
-                        внедрения и
-                        модернизации
-                        распределения</SaleText>
-                        <LinkSale text={'перейти в каталог'}/>
-                </CurrentSalesWrapper>
-                <ProductCardWrapper>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                    <ProductCard/>
-                </ProductCardWrapper>
-            </Block>
-        </FlexWrapper>
-</Container>
-</StyledShells>
-)
-    ;
+                            <SectionHeader>Актуальные акции <div>на <span>нашу продукцию</span></div>
+                            </SectionHeader>
+                            <SaleText>Учитывая ключевые сценарии поведения, обучения кадров влечет за собой процесс
+                                внедрения и
+                                модернизации
+                                распределения</SaleText>
+                            <LinkSale text={'перейти в каталог'} to={'/catalog'}/>
+                        </CurrentSalesWrapper>
+                        <ProductCardWrapper>
+                            <ProductCard/>
+                            <ProductCard/>
+                            <ProductCard/>
+                            <ProductCard/>
+                        </ProductCardWrapper>
+                    </Block>
+                </FlexWrapper>
+            </Container>
+        </StyledShells>
+    )
+        ;
 };
 
 const StyledShells = styled.section`
@@ -48,6 +48,7 @@ const StyledShells = styled.section`
   left: 0;
   right: 0;
   bottom: 0;
+  padding-top: 120px;
 
   &::after {
     content: '';
@@ -101,12 +102,12 @@ const CurrentSalesWrapper = styled.div`
   }
 `
 
-const LinkSale = styled(Link)`
+const LinkSale = styled(CommonLink)`
   background-color: ${theme.colors.accent};
   padding: 21px 40px;
   max-width: 238px;
   width: 100%;
-  
+
   ${Text} {
     font-size: 15px;
     line-height: 18px;

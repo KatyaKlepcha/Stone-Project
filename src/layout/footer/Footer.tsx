@@ -58,21 +58,6 @@ const StyledFooter = styled.footer`
   flex-direction: column;
   background-color: rgba(0, 0, 0, 1);
   position: relative;
-
-  &:after {
-    content: '';
-    cursor: pointer;
-    background-image: url(${ArrowUp});
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 60px;
-    height: 60px;
-    background-color: ${theme.colors.accent};
-    position: absolute;
-    border-radius: 50%;
-    top: 0;
-    right: 0;
-  }
 `
 
 const Information = styled.ul`

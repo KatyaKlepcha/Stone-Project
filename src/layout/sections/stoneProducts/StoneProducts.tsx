@@ -7,7 +7,7 @@ import WindowSills from '../../../components/assets/images/windowSills.png'
 import Shells from '../../../components/assets/images/shells.png'
 import Panel from '../../../components/assets/images/panel.png'
 import {SectionHeader, TitleSectionHeader} from "../../../components/sectionHeader/SectionHeader";
-import {Link, StyledLink} from "../../../components/link/Link";
+import {CommonLink, StyledLink} from "../../../components/link/Link";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme.styled";
@@ -26,7 +26,7 @@ export const StoneProducts = () => {
                                 {/*<Button><RightIcon iconId='arrow' width={'16.67'} height={'16.67'}/></Button>*/}
                             </ContainerBtn>
                         </HeaderWrapper>
-                        <Link text={'смотреть все'} color={'rgba(40, 42, 48, 1)'} isIcon={true}/>
+                        <CommonLink to={'/catalog'} text={'смотреть все'} color={'rgba(40, 42, 48, 1)'} isIcon={true}/>
                     </TitleBlock>
                     <Grid>
                         <PictureContainer><StyledCountertops src={`${Countertops}`} alt={'Cтолешницы'}/>

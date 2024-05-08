@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import AdvantagesIcon from "../../../../components/assets/images/AdvantagesIcon.png";
 import styled from "styled-components";
 import {Icon} from "../../../../components/icon/Icon";
