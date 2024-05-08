@@ -5,12 +5,6 @@ import {Icon} from "../../../../components/icon/Icon";
 import {theme} from "../../../../styles/Theme.styled";
 
 export const AdvantagesList = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    // const toggleDetails = (num: number) => {
-    //     setIsOpen(num);
-    // };
-    console.log('isOpen', isOpen)
 
     return (
         <AdvantagesListStyled>
