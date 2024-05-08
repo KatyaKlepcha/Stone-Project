@@ -6,6 +6,7 @@ import Countertops from '../assets/images/Countertops.png'
 import WindowSills from '../assets/images/windowSills.png'
 import Shells from '../assets/images/shells.png'
 import {theme} from "../../styles/Theme.styled";
+import Arrow from '../assets/images/arrow.svg'
 
 const items = [
     <img src={Countertops} alt={'Countertops'}/>,
@@ -28,6 +29,7 @@ const StyledSlider = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: -86px;
 
   .alice-carousel {
     position: unset;
@@ -55,7 +57,7 @@ const StyledSlider = styled.div`
     .alice-carousel__prev-btn, .alice-carousel__next-btn {
       text-align: center;
       position: absolute;
-      bottom: 70px;
+      bottom: 50px;
       width: unset;
     }
 
@@ -68,6 +70,7 @@ const StyledSlider = styled.div`
     }
 
     .alice-carousel__next-btn-item, .alice-carousel__prev-btn-item {
+      position: relative;
       color: ${theme.colors.font};
       width: 45px;
       height: 45px;
@@ -78,15 +81,21 @@ const StyledSlider = styled.div`
         border: none;
       }
       
-      //[data-area] {
-      //  position: relative;
-      //
-      //  ::after {
-      //    position: absolute;
-      //    transform: translate(-50%, 50%);
-      //    width: 10px;
-      //    height: 16px;
-      //  }
-      //}
+      [data-area] {
+        &::after {
+          height: 17px;
+          content:  url(${Arrow});
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    .alice-carousel__next-btn-item [data-area] {
+      &::after {
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
     }
 `
