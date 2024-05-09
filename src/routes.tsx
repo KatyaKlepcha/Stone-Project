@@ -6,12 +6,13 @@ import {StoneProducts} from "./layout/sections/stoneProducts/StoneProducts";
 import {Sale} from "./layout/sections/sales/Sale";
 import App from "./App";
 import {Catalog} from "./layout/sections/stoneProducts/catalog/Catalog";
+import {ErrorPage} from "./components/errorPage/ErrorPage";
 
 const router = createHashRouter([
     {
         path: "/",
         element: <App />,
-        // errorElement: <ErrorPage />,
+        errorElement: <ErrorPage />,
 
         children: [
             {

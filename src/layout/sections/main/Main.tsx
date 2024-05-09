@@ -13,11 +13,6 @@ export const SectionMain = () => {
                 <FlexWrapper align={'center'} justify={'flex-end'}>
                     <Information/>
                     <Slider/>
-                    {/*<SliderItem/>*/}
-                    {/*<SliderItem/>*/}
-                    {/*<SliderItem/>*/}
-                    {/*<SliderItem/>*/}
-                    {/*<img src={Ideas1Img}/>*/}
                 </FlexWrapper>
             </Container>
         </StyledMain>
@@ -47,17 +42,5 @@ const StyledMain = styled.section`
     width: 100%;
     object-fit: cover;
     transform: translateX(160px);
-  }
-`
-
-const SliderItem = styled.span`
-  display: inline-block;
-  width: 39px;
-  height: 3px;
-  background-color: rgba(255, 255, 255, 1);
-  margin-right: 18px;
-
-  &:last-child {
-    margin-right: 0;
   }
 `
