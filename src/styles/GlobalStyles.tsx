@@ -16,15 +16,18 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal;
     color: ${theme.colors.font};
     line-height: 1.2;
+    font-variant-numeric: lining-nums;
   }
 
   a {
     text-decoration: none;
+    cursor: pointer;
   }
   
   button {
     background-color: unset;
     border: none;
+    cursor: pointer;
   }
 
   ul, ol {

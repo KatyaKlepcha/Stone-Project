@@ -9,7 +9,7 @@ export const Header = () => {
     return (
         <StyledHeader>
             <Container>
-                <FlexWrapper justify={'space-between'}>
+                <FlexWrapper justify={'space-between'} align={'center'}>
                     <Logo/>
                     <FlexWrapper direction={'column'} justify={'space-around'}>
                         <Contacts/>

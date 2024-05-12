@@ -19,7 +19,6 @@ export const Button: FC<ButtonType> = ({name, className, onClick, color, backgro
 
 
 export const StyledButton = styled.button<ButtonType>`
-  cursor: pointer;
   text-transform: uppercase;
   color: ${props => props.color || theme.colors.font};
   background: ${props => props.background || theme.colors.accent};
