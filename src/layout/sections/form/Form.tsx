@@ -88,7 +88,16 @@ const StyledForm = styled.form`
   gap: 20px;
 
   input {
-    border: 1px solid rgba(243, 243, 243, 0.7)
+    border: 1px solid rgba(243, 243, 243, 0.7);
+    color: ${theme.colors.font};
+    
+    &::placeholder {
+      color: rgba(243, 243, 243, 1);
+    }
+    
+    &:focus-visible {
+      outline: 1px solid rgba(243, 243, 243, 0.7);
+    }
   }
 
   input[type='text'] {
@@ -104,6 +113,8 @@ const StyledForm = styled.form`
   input[type='submit'] {
     padding: 15px 80px 17px;
     background-color: ${theme.colors.font};
+    color: rgba(0, 0, 0, 1);
+
   }
 `
 
