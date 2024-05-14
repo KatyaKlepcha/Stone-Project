@@ -9,7 +9,7 @@ export const Header = () => {
     return (
         <StyledHeader>
             <Container>
-                <FlexWrapper justify={'space-between'} align={'center'}>
+                <FlexWrapper justify={'space-between'}>
                     <Logo/>
                     <FlexWrapper direction={'column'} justify={'space-around'}>
                         <Contacts/>
@@ -30,8 +30,14 @@ export const StyledHeader = styled.header`
   z-index: 3;
   background-color: rgba(17, 17, 17, 0.8);
   padding: 21px 0;
-  
+
   ${Container} {
     padding: 0;
+
+    div > div {
+      height: unset;
+    }
   }
+
+
 `
