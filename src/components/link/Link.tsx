@@ -35,6 +35,7 @@ export const StyledLink = styled(Link)`
 
 export const Text = styled.p`
   text-transform: uppercase;
+  text-align: center;
   font-weight: 400;
   font-size: 21px;
   line-height: 24px;
