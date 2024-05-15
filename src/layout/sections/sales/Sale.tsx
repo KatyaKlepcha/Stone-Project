@@ -34,8 +34,7 @@ export const Sale = () => {
                 </FlexWrapper>
             </Container>
         </StyledShells>
-    )
-        ;
+    );
 };
 
 const StyledShells = styled.section`

@@ -30,12 +30,15 @@ export const StyledHeaderMenu = styled.nav`
     display: flex;
     align-items: center;
     gap: 70px;
+  };
+
+  @media ${theme.media.tablet} {
+   display: none;
   }
 `
 
 const ListItem = styled.li`
   position: relative;
-  
 `
 
 const LinkMenu = styled(NavLink)`
