@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme.styled";
+import {font} from "../../../styles/Common";
 
 
 export const Form = () => {
@@ -13,17 +14,19 @@ export const Form = () => {
                 <FlexWrapper>
                     <BgFormImage/>
                     <BgGradient/>
-                    <Cont><Title>Остались вопросы? <div>свяжитесь с нами, мы вам поможем!</div></Title>
-                        <Text>Заполните форму и мы свяжемся с Вами в ближайшее время</Text>
+                    <FormBlock><Title>Остались вопросы? <div>свяжитесь с нами, <span>мы вам поможем!</span></div>
+                    </Title>
+                        <Text>Заполните форму и мы свяжемся с <span>Вами в ближайшее время</span></Text>
                         <StyledForm>
                             <InputWrapper>
                                 <input type={'text'} placeholder={'Ваше имя'} name={'userName'}/>
                                 <input type={'text'} placeholder={'Ваш телефон'} name={'telephone'}/>
                                 <input type={'submit'} value={'Отправить'}/>
                             </InputWrapper>
-                            <label> <input type={'checkbox'}/>Согласен на обработку персональных данных</label>
+                            <label><input type={'checkbox'}/>Согласен на обработку <a
+                                onClick={(event) => event.preventDefault()}>персональных данных</a></label>
                         </StyledForm>
-                    </Cont>
+                    </FormBlock>
                 </FlexWrapper>
             </Container>
         </StyledFormWrapper>
@@ -35,6 +38,10 @@ const StyledFormWrapper = styled.section`
 
   ${Container} {
     padding: 70px 0;
+
+    @media screen and (max-width: 1330px) {
+      padding: 50px 20px;
+    }
   }
 `
 
@@ -65,22 +72,42 @@ const BgGradient = styled.div`
   background: linear-gradient(89.82deg, rgba(0, 0, 0, 0.93) 40.01%, rgba(0, 0, 0, 0.7) 66.12%, rgba(255, 255, 255, 0) 87.98%);
 `
 
-const Cont = styled.div`
+const FormBlock = styled.div`
   position: relative;
+
+  @media ${theme.media.tablet} {
+    width: 100%;
+  }
 `
 
 const Title = styled.h4`
+  ${font({lineHeight: '32px', weight: 500, Fmax: 28, Fmin: 24})}
   text-transform: uppercase;
-  font-weight: 500;
-  font-size: 28px;
-  line-height: 32px;
+
+  div {
+    margin-top: 10px;
+  }
+
+  @media ${theme.media.tablet} {
+    line-height: 28px;
+
+    div > span {
+      display: block;
+    }
+  }
 `
 
 const Text = styled.p`
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 20px;
+  ${font({lineHeight: '20px', Fmax: 18, Fmin: 17})}
   margin: 15px 0 30px;
+
+  @media ${theme.media.tablet} {
+    line-height: 18px;
+
+    span {
+      display: block;
+    }
+  }
 `
 const StyledForm = styled.form`
   display: flex;
@@ -90,11 +117,13 @@ const StyledForm = styled.form`
   input {
     border: 1px solid rgba(243, 243, 243, 0.7);
     color: ${theme.colors.font};
-    
+
     &::placeholder {
       color: rgba(243, 243, 243, 1);
+      font-size: 14px;
+      line-height: 18px;
     }
-    
+
     &:focus-visible {
       outline: 1px solid rgba(243, 243, 243, 0.7);
     }
@@ -115,7 +144,24 @@ const StyledForm = styled.form`
     background-color: ${theme.colors.font};
     color: rgba(0, 0, 0, 1);
 
+    &::placeholder {
+      font-size: 15px;
+      line-height: 18px;
+    }
   }
+
+  label {
+    ${font({lineHeight: '16px', Fmax: 14, Fmin: 13, color: 'rgba(243, 243, 243, 1)'})}
+    a {
+      border-bottom: 1px solid rgba(243, 243, 243, 1)
+    }
+  ;
+  }
+
+  @media ${theme.media.tablet} {
+    line-height: 15px;
+  }
+}
 `
 
 const InputWrapper = styled.div`
@@ -124,5 +170,9 @@ const InputWrapper = styled.div`
 
   input {
     background: transparent;
+  }
+
+  @media ${theme.media.tablet} {
+    flex-direction: column;
   }
 `
