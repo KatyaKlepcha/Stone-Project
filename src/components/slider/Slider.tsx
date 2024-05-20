@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {FC} from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import styled from "styled-components";
@@ -14,8 +14,12 @@ const items = [
     <img src={Shells} alt={'Sink'}/>,
 ];
 
-export const Slider = () => (
-    <StyledSlider>
+type SliderPropsType = {
+    className?: string
+}
+
+export const Slider: FC<SliderPropsType> = ({className}) => (
+    <StyledSlider className={className}>
         <AliceCarousel
             mouseTracking
             items={items}
