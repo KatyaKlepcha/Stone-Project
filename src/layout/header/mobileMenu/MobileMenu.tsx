@@ -3,6 +3,9 @@ import styled, {css} from "styled-components";
 import {Text} from "../../../components/link/Link";
 import {theme} from "../../../styles/Theme.styled";
 import {NavLink} from "react-router-dom";
+import {HeaderMenu} from "../headerMenu/HeaderMenu";
+import {HeaderNavigation, LinkMenu} from "../headerNavigation/headerNavigation";
+import {Container} from "../../../components/Container";
 
 export const MobileMenu = () => {
 
@@ -14,18 +17,12 @@ export const MobileMenu = () => {
 
     return (
         <StyledMobileMenu>
-            <BurgerButton isOpen={isOpen} onClick={onPopupHandler}>
-                <span></span>
-            </BurgerButton>
-            <MobileMenuPopup isOpen={isOpen} onClick={onPopupHandler}>
-                <ul>
-                    <ListItem><LinkMenu to={'/catalog'}>каталог</LinkMenu></ListItem>
-                    <ListItem><LinkMenu to={'/sale'}>акции</LinkMenu></ListItem>
-                    <ListItem><LinkMenu to={'/'}>блог</LinkMenu></ListItem>
-                    <ListItem><LinkMenu to={'/'}>сотрудничество</LinkMenu></ListItem>
-                    <ListItem><LinkMenu to={'/'}>оплата и доставка</LinkMenu></ListItem>
-                </ul>
-            </MobileMenuPopup>
+                <BurgerButton isOpen={isOpen} onClick={onPopupHandler}>
+                    <span></span>
+                </BurgerButton>
+                <MobileMenuPopup isOpen={isOpen} onClick={onPopupHandler}>
+                    <HeaderNavigation/>
+                </MobileMenuPopup>
         </StyledMobileMenu>
     );
 };
@@ -36,10 +33,10 @@ export const StyledMobileMenu = styled.nav`
   @media (max-width: 768px) {
     display: block;
   }
-`
+`;
 
 const BurgerButton = styled.button<{ isOpen: boolean }>`
-  position: fixed;
+  /* position: fixed; */
   width: 36px;
   height: 24px;
   z-index: 1000;
@@ -88,7 +85,7 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 1);
-  z-index: 10;
+  z-index: -1;
   display: none;
 
   ${props => props.isOpen && css<{ isOpen: boolean }>`
@@ -97,42 +94,35 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
     align-items: center;
   `}
   ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 70px;
-  }
-`
+    width: 90%;
+    //text-align: left;
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    //gap: 70px;
 
-const ListItem = styled.li`
-  position: relative;
+    li {
 
-`
+      padding: 29px 0;
+      border-bottom: 0.4px solid ${theme.colors.font};
 
-const LinkMenu = styled(NavLink)`
-  color: ${theme.colors.font};
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 18px;
-  padding: 0 10px;
+      a {
+        padding: 0;
+      }
 
-  &.active {
-    &::after {
-      content: '';
-      display: inline-block;
-      position: absolute;
-      border-bottom: 2px solid rgba(255, 255, 255, 1);
-      background-color: ${theme.colors.font};
-      height: 2px;
-      width: 100%;
-      bottom: -14px;
-      left: 0;
-      right: 0;
+      ${LinkMenu} {
+        &.active {
+          font-weight: bolder;
+
+          &::after {
+            display: none;
+          }
+        }
+      }
     }
-  }
 
-  ${Text} {
-    font-size: 18px;
-    line-height: 20px;
+    & + li {
+      border-bottom: 0.4px solid ${theme.colors.font};
+    }
   }
 `

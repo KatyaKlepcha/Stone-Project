@@ -27,6 +27,7 @@ export const LinkMenu = styled(NavLink)`
   font-weight: 400;
   font-size: 18px;
   padding: 0 10px;
+  white-space: nowrap;
 
   &.active {
     &::after {
