@@ -35,6 +35,10 @@ const StyledProductCard = styled.div`
   background-color: rgba(255, 255, 255, 0.96);
   position: relative;
   box-shadow: 0 4px 47px -2px rgba(0, 0, 0, 0.25);
+
+  @media screen and (max-width: 1330px) {
+    width: auto;
+  }
 `
 
 const ContainerImg = styled.div`
@@ -52,7 +56,8 @@ const ContainerImg = styled.div`
 `
 
 const ProductImg = styled.img`
-  
+  width: 100%;
+  min-width: 246px;
 `
 
 const Description = styled.div`

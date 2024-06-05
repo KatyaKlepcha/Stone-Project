@@ -7,13 +7,16 @@ import {CommonLink, Text} from "../../../components/link/Link";
 import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme.styled";
+import {Slider} from "../../../components/slider/Slider";
+import ArrowGray from '../../../components/assets/images/arrowGray.svg'
+
+const items = [<ProductCard/>, <ProductCard/>, <ProductCard/>, <ProductCard/>]
 
 export const Sale = () => {
     return (
         <StyledShells>
             <Container>
                 <FlexWrapper direction={'column'} align={'flex-end'}>
-                    <CommonLink text={'смотреть все'} isIcon={true} to={'/catalog'}/>
                     <Block>
                         <CurrentSalesWrapper>
                             <SectionHeader>Актуальные акции <div>на <span>нашу продукцию</span></div>
@@ -24,12 +27,16 @@ export const Sale = () => {
                                 распределения</SaleText>
                             <LinkSale text={'перейти в каталог'} to={'/catalog'}/>
                         </CurrentSalesWrapper>
-                        <ProductCardWrapper>
-                            <ProductCard/>
-                            <ProductCard/>
-                            <ProductCard/>
-                            <ProductCard/>
-                        </ProductCardWrapper>
+                        <CardBlock>
+                            <CommonLinkSale text={'смотреть все'} isIcon={true} to={'/catalog'}/>
+                            <ProductCardWrapper>
+                                <ProductCard/>
+                                <ProductCard/>
+                                <ProductCard/>
+                                <ProductCard/>
+                            </ProductCardWrapper>
+                            <SliderSale items={items}/>
+                        </CardBlock>
                     </Block>
                 </FlexWrapper>
             </Container>
@@ -64,6 +71,10 @@ const StyledShells = styled.section`
 
   ${Container} {
     padding: 58px 0 50px;
+
+    @media screen and (max-width: 1290px) {
+      padding: 70px 0 46px;
+    }
   }
 
   ${FlexWrapper} {
@@ -75,7 +86,9 @@ const StyledShells = styled.section`
 const Block = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 20px;
+  flex-wrap: wrap;
 `
 
 const CurrentSalesWrapper = styled.div`
@@ -99,9 +112,16 @@ const CurrentSalesWrapper = styled.div`
       color: ${theme.colors.accent};
     }
   }
+
+  @media screen and (max-width: 1290px) {
+   position: static;
+    max-width: 100%;
+    padding: 33px 21px;
+  }
 `
 
 const LinkSale = styled(CommonLink)`
+  justify-content: center;
   background-color: ${theme.colors.accent};
   padding: 21px 40px;
   max-width: 238px;
@@ -110,6 +130,10 @@ const LinkSale = styled(CommonLink)`
   ${Text} {
     font-size: 15px;
     line-height: 18px;
+  }
+
+  @media screen and (max-width: 1290px) {
+    max-width: 100%;
   }
 `
 
@@ -120,10 +144,69 @@ const SaleText = styled.p`
   margin: 34px 0 40px;
 `
 
+const CardBlock = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (max-width: 1290px) {
+    padding: 0 21px;
+  }
+`
+
+const CommonLinkSale = styled(CommonLink)`
+  margin-bottom: 20px;
+  justify-content: flex-end;
+  
+  @media screen and (max-width: 1290px) {
+    margin: 20px 0 30px;
+  }
+`
+
 const ProductCardWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-row-gap: 28px;
   grid-column-gap: 38px;
+
+  @media screen and (max-width: 1290px) {
+    grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+  }
+
+  @media ${theme.media.tablet} {
+    display: none;
+  }
+`
+
+const SliderSale = styled(Slider)`
+  display: none;
+
+  @media ${theme.media.tablet} {
+    display: block;
+    align-self: center;
+    max-width: 400px;
+
+    .alice-carousel__next-btn-item, .alice-carousel__prev-btn-item {
+      background-color: rgba(229, 229, 229, 1);
+      position: absolute;
+      top: 210px;
+      border-radius: 5px;
+
+
+      [data-area] {
+        &::after {
+          content: url(${ArrowGray});
+        }
+      }
+    }
+
+    .alice-carousel__next-btn-item {
+      right: -20px;
+    }
+
+    .alice-carousel__prev-btn-item {
+      left: -20px;
+    }
+  }
 `

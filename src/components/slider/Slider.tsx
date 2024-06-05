@@ -23,6 +23,16 @@ export const StyledSlider = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .alice-carousel__dots-item:not(.__custom) {
+    width: 40px;
+    height: 3px;
+    border-radius: unset;
+
+    &.__active {
+      background-color: ${theme.colors.accent};
+    }
+  }
   
   .alice-carousel__prev-btn, .alice-carousel__next-btn {
     width: unset;

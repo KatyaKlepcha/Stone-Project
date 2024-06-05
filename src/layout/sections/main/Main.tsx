@@ -76,21 +76,11 @@ const StyledMain = styled.section`
         transform: unset;
       }
 
-      .alice-carousel__dots {
-        position: absolute;
-        left: 0;
-        bottom: 80px;
-      }
-
-      .alice-carousel__dots-item:not(.__custom) {
-        width: 40px;
-        height: 3px;
-        border-radius: unset;
-
-        &.__active {
-          background-color: ${theme.colors.accent};
-        }
-      }
+       .alice-carousel__dots {
+         position: absolute;
+         left: 0;
+         bottom: 80px;
+       }
 
       .alice-carousel__prev-btn, .alice-carousel__next-btn {
         text-align: center;
