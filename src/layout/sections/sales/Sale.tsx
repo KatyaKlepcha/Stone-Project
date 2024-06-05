@@ -118,6 +118,13 @@ const CurrentSalesWrapper = styled.div`
     max-width: 100%;
     padding: 33px 21px;
   }
+
+  @media ${theme.media.tablet} {
+    ${TitleSectionHeader} {
+      font-size: 27px;
+      line-height: 30px
+    }
+  }
 `
 
 const LinkSale = styled(CommonLink)`
@@ -142,6 +149,11 @@ const SaleText = styled.p`
   font-size: 22px;
   line-height: 26px;
   margin: 34px 0 40px;
+
+  @media ${theme.media.tablet} {
+      font-size: 17px;
+      line-height: 20px;
+  }
 `
 
 const CardBlock = styled.div`

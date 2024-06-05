@@ -32,7 +32,7 @@ export const StyledHeaderMenu = styled.nav`
     padding: 13px 38px 14px 38px
   }
 
-  @media ${theme.media.tablet} {
+  @media screen and (max-width: 990px) {
     display: none;
   }
 `

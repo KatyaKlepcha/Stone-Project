@@ -3,7 +3,7 @@ import {Icon} from "../icon/Icon";
 import styled from "styled-components";
 import {theme} from "../../styles/Theme.styled";
 import {FlexWrapper} from "../FlexWrapper";
-import {MobileMenu} from "../../layout/header/mobileMenu/MobileMenu"
+import {SearchInput} from "../searchInput/searchInput";
 
 export const Contacts = () => {
     const [searchMode, setSearchMode] = useState(false)
@@ -23,12 +23,8 @@ export const Contacts = () => {
             </FlexWrapper>
             <FlexWrapper align={'center'} justify={'flex-end'}>
                 {searchMode ?
-                    (<InputWrapper>
-                        <Search placeholder={'Поиск...'} autoFocus/>
-                        <Icon iconId={'search'} fill={'rgba(156, 156, 156, 1)'} width={'20'} height={'20'}/>
-                    </InputWrapper>) :
+                    <SearchInput/> :
                     <IconContact iconId={'search'} width={'23'} height={'23'} onIconClick={onIconClickHandler}/>}
-                <MobileMenu/>
             </FlexWrapper>
         </StyledContacts>
     );
@@ -36,9 +32,8 @@ export const Contacts = () => {
 
 export const StyledContacts = styled.div`
   display: flex;
-  //max-width: max-content;
   z-index: 11;
-  //width: 100%;
+  margin-bottom: 24px;
 
   svg {
     cursor: pointer;
@@ -53,21 +48,20 @@ export const StyledContacts = styled.div`
     line-height: 22px;
 
     @media ${theme.media.tablet} {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 18px;
     }
   }
 
-  @media ${theme.media.tablet} {
+  @media screen and (max-width: 990px) {
     flex-direction: column;
     align-items: flex-end;
     gap: 10px;
     width: 100%;
-    
-    ${FlexWrapper} {
-      justify-content: flex-end;
-      width: 100%;
-      //display: block;
+    margin-bottom: 8px;
+
+    ${FlexWrapper}:nth-child(2) {
+      display: none;
     }
   }
 `
@@ -79,38 +73,4 @@ const ViberLink = styled.a`
 const IconContact = styled(Icon)`
   margin: 0 10px 0 24px;
   fill: ${theme.colors.font};
-`
-
-const InputWrapper = styled.div`
-  position: relative;
-  margin-right: 20px;
-  width: 100%;
-
-  // @media ${theme.media.tablet} {
-  //   width: 100%;
-  // }
-
-  svg {
-    position: absolute;
-    top: 7px;
-    right: 8px;
-    bottom: 8px;
-  }
-`
-
-const Search = styled.input`
-  padding: 10px 8px 8px 16px;
-  border: 1px solid rgba(156, 156, 156, 0.81);
-  margin-left: 7px;
-  background-color: transparent;
-
-  &::placeholder {
-    font-size: 13px;
-    line-height: 20px;
-    color: rgba(156, 156, 156, 1);
-  }
-
-  @media ${theme.media.tablet} {
-    width: 100%;
-  }
 `

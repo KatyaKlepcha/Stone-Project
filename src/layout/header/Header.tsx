@@ -4,20 +4,22 @@ import {Contacts} from "../../components/contacts/Contacts";
 import {Container} from "../../components/Container";
 import {FlexWrapper} from "../../components/FlexWrapper";
 import {HeaderMenu} from "./headerMenu/HeaderMenu";
-import {theme} from "../../styles/Theme.styled";
 import React from "react";
+import {MobileMenu} from "./mobileMenu/MobileMenu";
 
 export const Header = () => {
+
     return (
         <StyledHeader>
             <Container>
-                <FlexWrapper justify={'space-between'} >
+                <FlexWrapper justify={'space-between'} align={'center'}>
                     <Logo/>
                     <HeaderMenuWrapper>
                         <Contacts/>
                         <HeaderMenu/>
                     </HeaderMenuWrapper>
                 </FlexWrapper>
+                <MobileMenu/>
             </Container>
         </StyledHeader>
     )
@@ -37,19 +39,22 @@ export const StyledHeader = styled.header`
     padding: 0;
   }
 
-  @media ${theme.media.tablet} {
+  @media screen and (max-width: 1290px) {
+    ${FlexWrapper} {
+
+      a > img {
+        width: 200px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 990px) {
 
     ${Container} {
-      padding: 0 22px 0 20px;
+      padding: 0 14px 0 0;
     }
-    
+
     ${FlexWrapper} {
-      //display: block;
-      
-      //&:first-child {
-      //  align-items: flex-start;
-      //}
-      //display: block;
 
       a > img {
         width: 93px;
@@ -64,7 +69,7 @@ export const StyledHeader = styled.header`
 const HeaderMenuWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: flex-end;
   flex-grow: 1;
 `
+

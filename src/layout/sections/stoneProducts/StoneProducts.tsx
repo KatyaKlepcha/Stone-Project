@@ -30,7 +30,7 @@ export const StoneProducts = () => {
                             <SectionHeader>Изделия
                                 <div>из <span>натурального камня</span></div></SectionHeader>
                             <ContainerBtn>
-                                <Slider items={items}/>
+                                {/*<Slider items={items}/>*/}
                             </ContainerBtn>
                         </HeaderWrapper>
                         <CommonLink to={'/catalog'} text={'смотреть все'} color={'rgba(40, 42, 48, 1)'} isIcon={true}/>

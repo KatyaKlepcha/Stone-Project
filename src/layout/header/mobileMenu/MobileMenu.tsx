@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
 import styled, {css} from "styled-components";
-import {Text} from "../../../components/link/Link";
 import {theme} from "../../../styles/Theme.styled";
-import {NavLink} from "react-router-dom";
-import {HeaderMenu} from "../headerMenu/HeaderMenu";
 import {HeaderNavigation, LinkMenu} from "../headerNavigation/headerNavigation";
-import {Container} from "../../../components/Container";
+import {SearchInput} from "../../../components/searchInput/searchInput";
+import {Icon} from "../../../components/icon/Icon";
 
 export const MobileMenu = () => {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [searchMode, setSearchMode] = useState(false)
+
+    const onIconClickHandler = () => {
+        setSearchMode(!searchMode)
+    }
 
     const onPopupHandler = () => {
         setIsOpen(!isOpen)
@@ -17,6 +20,9 @@ export const MobileMenu = () => {
 
     return (
         <StyledMobileMenu>
+            {searchMode ?
+                <SearchInput/> :
+                <IconContact iconId={'search'} width={'23'} height={'23'} onIconClick={onIconClickHandler}/>}
                 <BurgerButton isOpen={isOpen} onClick={onPopupHandler}>
                     <span></span>
                 </BurgerButton>
@@ -30,13 +36,15 @@ export const MobileMenu = () => {
 export const StyledMobileMenu = styled.nav`
   display: none;
 
-  @media (max-width: 768px) {
-    display: block;
+  @media (max-width: 990px) {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
   }
 `;
 
 const BurgerButton = styled.button<{ isOpen: boolean }>`
-  /* position: fixed; */
   width: 36px;
   height: 24px;
   z-index: 1000;
@@ -95,11 +103,6 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   `}
   ul {
     width: 90%;
-    //text-align: left;
-    //display: flex;
-    //flex-direction: column;
-    //align-items: center;
-    //gap: 70px;
 
     li {
 
@@ -125,4 +128,9 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
       border-bottom: 0.4px solid ${theme.colors.font};
     }
   }
+`
+
+const IconContact = styled(Icon)`
+  margin: 0 10px 0 24px;
+  fill: ${theme.colors.font};
 `
