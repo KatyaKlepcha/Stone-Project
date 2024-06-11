@@ -41,6 +41,11 @@ export const StyledMobileMenu = styled.nav`
     width: 100%;
     justify-content: flex-end;
     align-items: center;
+    margin-top: -20px;
+  }
+
+  @media ${theme.media.tablet} {
+    margin-top: 0;
   }
 `;
 
@@ -103,11 +108,12 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
   `}
   ul {
     width: 90%;
+    position: absolute;
+    top: 108px;
 
     li {
 
       padding: 29px 0;
-      border-bottom: 0.4px solid ${theme.colors.font};
 
       a {
         padding: 0;
@@ -124,8 +130,8 @@ const MobileMenuPopup = styled.div<{ isOpen: boolean }>`
       }
     }
 
-    & + li {
-      border-bottom: 0.4px solid ${theme.colors.font};
+    li + li {
+      border-top: 0.4px solid ${theme.colors.font};
     }
   }
 `

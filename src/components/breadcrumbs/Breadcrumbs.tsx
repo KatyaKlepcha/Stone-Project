@@ -24,7 +24,7 @@ export const Breadcrumbs = () => {
     );
 };
 
-const StyledBreadcrumbs = styled.div`
+export const StyledBreadcrumbs = styled.div`
 
   a {
     font-size: 16px;

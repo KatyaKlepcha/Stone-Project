@@ -29,7 +29,7 @@ export const TitleSectionHeader = styled.h3`
     margin-top: -9px;
   }
 
-  div {
+  div, span {
     color: ${theme.colors.accent};
   }
 `

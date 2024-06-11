@@ -71,15 +71,21 @@ const StyledShells = styled.section`
 
   ${Container} {
     padding: 58px 0 50px;
-
-    @media screen and (max-width: 1290px) {
-      padding: 70px 0 46px;
-    }
   }
 
   ${FlexWrapper} {
     position: relative;
     z-index: 3;
+  }
+  
+  @media screen and (max-width: 1290px) {
+    ${FlexWrapper} {
+      align-items: normal;
+    }
+
+    ${Container} {
+      padding: 70px 0 46px;
+    }
   }
 `
 
@@ -114,7 +120,7 @@ const CurrentSalesWrapper = styled.div`
   }
 
   @media screen and (max-width: 1290px) {
-   position: static;
+    position: static;
     max-width: 100%;
     padding: 33px 21px;
   }
@@ -204,8 +210,7 @@ const SliderSale = styled(Slider)`
       position: absolute;
       top: 210px;
       border-radius: 5px;
-
-
+      
       [data-area] {
         &::after {
           content: url(${ArrowGray});

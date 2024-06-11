@@ -6,6 +6,7 @@ import {FlexWrapper} from "../../components/FlexWrapper";
 import {HeaderMenu} from "./headerMenu/HeaderMenu";
 import React from "react";
 import {MobileMenu} from "./mobileMenu/MobileMenu";
+import {theme} from "../../styles/Theme.styled";
 
 export const Header = () => {
 
@@ -49,19 +50,36 @@ export const StyledHeader = styled.header`
   }
 
   @media screen and (max-width: 990px) {
+    background-color: rgba(0, 0, 0, 1);
 
     ${Container} {
       padding: 0 14px 0 0;
     }
 
     ${FlexWrapper} {
+      align-items: flex-start;
+    }
 
-      a > img {
-        width: 93px;
-        height: 37px;
-        position: relative;
-        z-index: 12;
-      }
+    a {
+      margin-left: 13px;
+    }
+
+    a > img {
+      position: relative;
+      z-index: 12;
+    }
+  }
+}
+
+@media ${theme.media.tablet} {
+  ${FlexWrapper} {
+    a {
+      margin-left: 13px;
+    }
+
+    a > img {
+      width: 93px;
+      height: 37px;
     }
   }
 `

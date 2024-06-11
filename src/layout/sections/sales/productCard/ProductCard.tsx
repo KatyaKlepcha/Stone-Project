@@ -30,15 +30,12 @@ export const ProductCard = () => {
 };
 
 const StyledProductCard = styled.div`
-  width: 282px;
+  min-width: 282px;
+  width: 100%;
   padding: 14px 18px 15px 17px;
   background-color: rgba(255, 255, 255, 0.96);
   position: relative;
   box-shadow: 0 4px 47px -2px rgba(0, 0, 0, 0.25);
-
-  @media screen and (max-width: 1330px) {
-    width: auto;
-  }
 `
 
 const ContainerImg = styled.div`
@@ -67,26 +64,37 @@ const Description = styled.div`
 const Shortly = styled.div`
   color: ${theme.colors.accent};
   margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 700;
 `
 
 const Product = styled.div`
   color: rgba(0, 0, 0, 1);
-
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
 `
 
 const PriceWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 16px;
+  align-items: center;
 `
 
 const Price = styled.div`
   color: ${theme.colors.accent};
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 700;
 `
 
 const OldPrice = styled.span`
   color: rgba(148, 153, 129, 1);
   text-decoration: line-through;
+  font-size: 14px;
+  line-height: 16px;
 `
 
 const LinkCard = styled(CommonLink)`
