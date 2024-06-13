@@ -1,46 +1,58 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styled from "styled-components";
-import ProductImage from '../../../../components/assets/images/product.png'
 import {theme} from "../../../../styles/Theme.styled";
 import {CommonLink, Text} from "../../../../components/link/Link";
+import ProductImage from "../../../../components/assets/images/product.png";
 
 type ProductCardPropsType = {
-    image: string
-    shortName: string
-    description: string
-    newPrice: number
-    oldPrice: number
+    image?: string
+    shortName?: string
+    description?: string
+    newPrice?: number
+    oldPrice?: number
 }
 
-export const ProductCard = () => {
-    return (
-        <StyledProductCard>
-            <ContainerImg><ProductImg src={`${ProductImage}`} alt={'Product Card'}/></ContainerImg>
-            <Description>
-                <Shortly>Kratki</Shortly>
-                <Product>Каминная топка Kratki ZUZIA LPT</Product>
-                <PriceWrapper>
-                    <Price>16 490 руб </Price>
-                    <OldPrice>16 490 руб</OldPrice>
-                </PriceWrapper>
-            </Description>
-            <LinkCard text={'Подробнее'} to={'/'}/>
-        </StyledProductCard>
-    );
-};
+export const ProductCard: FC<ProductCardPropsType> =
+    ({
+         image = `${ProductImage}`,
+         oldPrice = '10 000',
+         newPrice = '9 000',
+         description = 'Каминная топка Kratki ZUZIA LPT',
+         shortName = 'Kratki',
+     }) => {
+
+        return (
+            <StyledProductCard>
+                <ContainerImg><ProductImg src={image} alt={'Product Card'}/></ContainerImg>
+                <Description>
+                    <Shortly>{shortName}</Shortly>
+                    <Product>{description}</Product>
+                    <PriceWrapper>
+                        <Price>{newPrice} руб </Price>
+                        <OldPrice> {oldPrice} руб</OldPrice>
+                    </PriceWrapper>
+                </Description>
+                <LinkCard text={'Подробнее'} to={'/'}/>
+            </StyledProductCard>
+        );
+    };
 
 const StyledProductCard = styled.div`
-  min-width: 282px;
+  max-width: 282px;
   width: 100%;
   padding: 14px 18px 15px 17px;
   background-color: rgba(255, 255, 255, 0.96);
   position: relative;
   box-shadow: 0 4px 47px -2px rgba(0, 0, 0, 0.25);
+
+  @media screen and (max-width: 1290px) {
+    max-width: none;
+  }
 `
 
 const ContainerImg = styled.div`
   position: relative;
-  
+
   &::after {
     position: absolute;
     color: rgba(0, 0, 0, 1);
@@ -54,7 +66,11 @@ const ContainerImg = styled.div`
 
 const ProductImg = styled.img`
   width: 100%;
-  min-width: 246px;
+  max-width: 246px;
+
+  @media screen and (max-width: 1290px) {
+    max-width: none;
+  }
 `
 
 const Description = styled.div`

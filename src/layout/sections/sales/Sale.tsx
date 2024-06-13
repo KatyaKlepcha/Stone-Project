@@ -8,7 +8,8 @@ import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme.styled";
 import {Slider} from "../../../components/slider/Slider";
-import ArrowGray from '../../../components/assets/images/arrowGray.svg'
+import ArrowGray from '../../../components/assets/images/arrowGray.svg';
+import {ProductCardContainer} from "./productCard/ProductCardContainer";
 
 const items = [<ProductCard/>, <ProductCard/>, <ProductCard/>, <ProductCard/>]
 
@@ -30,10 +31,7 @@ export const Sale = () => {
                         <CardBlock>
                             <CommonLinkSale text={'смотреть все'} isIcon={true} to={'/catalog'}/>
                             <ProductCardWrapper>
-                                <ProductCard/>
-                                <ProductCard/>
-                                <ProductCard/>
-                                <ProductCard/>
+                                <ProductCardContainer/>
                             </ProductCardWrapper>
                             <SliderSale items={items}/>
                         </CardBlock>
@@ -77,7 +75,7 @@ const StyledShells = styled.section`
     position: relative;
     z-index: 3;
   }
-  
+
   @media screen and (max-width: 1290px) {
     ${FlexWrapper} {
       align-items: normal;
@@ -157,8 +155,8 @@ const SaleText = styled.p`
   margin: 34px 0 40px;
 
   @media ${theme.media.tablet} {
-      font-size: 17px;
-      line-height: 20px;
+    font-size: 17px;
+    line-height: 20px;
   }
 `
 
@@ -172,15 +170,6 @@ const CardBlock = styled.div`
   }
 `
 
-const CommonLinkSale = styled(CommonLink)`
-  margin-bottom: 20px;
-  justify-content: flex-end;
-  
-  @media screen and (max-width: 1290px) {
-    margin: 20px 0 30px;
-  }
-`
-
 const ProductCardWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -189,11 +178,21 @@ const ProductCardWrapper = styled.div`
   grid-column-gap: 38px;
 
   @media screen and (max-width: 1290px) {
-    grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    justify-items: center;
   }
 
   @media ${theme.media.tablet} {
     display: none;
+  }
+`;
+
+const CommonLinkSale = styled(CommonLink)`
+  margin-bottom: 20px;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 1290px) {
+    margin: 20px 0 30px;
   }
 `
 
@@ -203,14 +202,14 @@ const SliderSale = styled(Slider)`
   @media ${theme.media.tablet} {
     display: block;
     align-self: center;
-    max-width: 400px;
+    max-width: 320px;
 
     .alice-carousel__next-btn-item, .alice-carousel__prev-btn-item {
       background-color: rgba(229, 229, 229, 1);
       position: absolute;
       top: 210px;
       border-radius: 5px;
-      
+
       [data-area] {
         &::after {
           content: url(${ArrowGray});

@@ -3,12 +3,12 @@ import styled from "styled-components";
 import {Container} from "../../../../components/Container";
 import {FlexWrapper} from "../../../../components/FlexWrapper";
 import {SectionHeader, TitleSectionHeader} from "../../../../components/sectionHeader/SectionHeader";
-import {ProductCard} from "../../sales/productCard/ProductCard";
 import {theme} from "../../../../styles/Theme.styled";
 import {Breadcrumbs, StyledBreadcrumbs} from "../../../../components/breadcrumbs/Breadcrumbs";
 import {Icon} from "../../../../components/icon/Icon";
 import {CommonLink} from "../../../../components/link/Link";
 import {font} from "../../../../styles/Common";
+import {ProductCardContainer} from "../../sales/productCard/ProductCardContainer";
 
 export const Catalog = () => {
     return (
@@ -45,10 +45,7 @@ export const Catalog = () => {
                             </SelectStone>
                         </SelectStoneBlock>
                         <ProductWrapper>
-                            <ProductCard/>
-                            <ProductCard/>
-                            <ProductCard/>
-                            <ProductCard/>
+                            <ProductCardContainer/>
                         </ProductWrapper>
                         <CommonLink to={'/catalog'} text={'показать ещё'} color={'rgba(40, 42, 48, 1)'} isIcon={true}/>
                     </Wrapper>
@@ -63,11 +60,17 @@ const StyledCatalog = styled.div`
   padding-top: 140px;
 
   ${Container} {
-    padding: 54px 100px 59px;
+    padding: 54px 0 59px;
   }
-  
+
   ${TitleSectionHeader} {
     ${font({lineHeight: '46px', Fmax: 40, Fmin: 24, color: 'rgba(40, 42, 48, 1)'})}
+  }
+
+  @media screen and (max-width: 1330px) {
+    ${Container} {
+      padding: 0 20px 0;
+    }
   }
 
   @media ${theme.media.tablet} {
@@ -96,7 +99,7 @@ const SortBlock = styled.div`
     border: none;
     padding: 0;
     margin: 0;
-    
+
     ${StyledBreadcrumbs} {
       width: 100%;
       border-bottom: 1px solid rgba(229, 229, 229, 1);
@@ -131,7 +134,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 288px 1fr;
   grid-column-gap: 30px;
-  
+
   a {
     margin-top: 30px;
     justify-self: end;
@@ -140,7 +143,7 @@ const Wrapper = styled.div`
 
   @media ${theme.media.tablet} {
     grid-template-columns: 1fr;
-    
+
     a {
       grid-column: unset;
     }
@@ -174,14 +177,14 @@ const SelectStone = styled.div`
 
 const ProductWrapper = styled.div`
   display: grid;
-  //justify-items: stretch;
+  justify-items: center;
   grid-row-gap: 54px;
-  grid-column-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
+  grid-column-gap: 38px;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
 
   @media ${theme.media.tablet} {
     margin: 55px 0 28px;
     grid-row-gap: 20px;
   }
 `
+

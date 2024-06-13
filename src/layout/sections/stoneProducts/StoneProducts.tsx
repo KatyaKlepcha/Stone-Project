@@ -10,15 +10,7 @@ import {Container} from "../../../components/Container";
 import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme.styled";
 import {font} from "../../../styles/Common";
-import {Slider, StyledSlider} from "../../../components/slider/Slider";
-import ArrowGray from '../../../components/assets/images/arrowGray.svg'
 
-const items = [
-    // <img src={Countertops} alt={'Countertops'}/>,
-    // <img src={WindowSills} alt={'WindowSills'}/>,
-    // <img src={Shells} alt={'Sink'}/>,
-    1,2,3
-];
 
 export const StoneProducts = () => {
     return (
@@ -29,25 +21,22 @@ export const StoneProducts = () => {
                         <HeaderWrapper>
                             <SectionHeader>Изделия
                                 <div>из <span>натурального камня</span></div></SectionHeader>
-                            <ContainerBtn>
-                                {/*<Slider items={items}/>*/}
-                            </ContainerBtn>
                         </HeaderWrapper>
                         <CommonLink to={'/catalog'} text={'смотреть все'} color={'rgba(40, 42, 48, 1)'} isIcon={true}/>
                     </TitleBlock>
                     <Grid>
-                        <PictureContainer><StyledCountertops src={`${Countertops}`} alt={'Cтолешницы'}/>
+                        <PictureContainer><img src={`${Countertops}`} alt={'Cтолешницы'}/>
                             <Signature>Cтолешницы</Signature>
                         </PictureContainer>
-                        <PictureContainer><StyledWindowSills src={`${WindowSills}`} alt={'Подоконники'}/>
+                        <PictureContainer><img src={`${WindowSills}`} alt={'Подоконники'}/>
                             <Signature>Подоконники</Signature>
                         </PictureContainer>
                         <PictureContainer>
-                            <StyledSink src={`${Shells}`} alt={'Раковины'}/>
+                            <img src={`${Shells}`} alt={'Раковины'}/>
                             <Signature>Раковины</Signature>
                         </PictureContainer>
                         <PictureContainer>
-                            <StyledPanel src={`${Panel}`} alt={'Панно'}/>
+                            <img src={`${Panel}`} alt={'Панно'}/>
                             <Signature>Панно</Signature>
                         </PictureContainer>
                     </Grid>
@@ -72,22 +61,16 @@ const StyledStoneProducts = styled.div`
 const TitleBlock = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
 
   ${StyledLink} {
-    margin-top: 60px;
+    margin: 58px 0 40px;
     align-self: flex-end;
   }
 `
 
-const Title = styled.h2`
-  text-transform: uppercase;
-  color: rgba(40, 42, 48, 1)
-`
 const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
 
   ${TitleSectionHeader} {
     ${font({lineHeight: '46px', Fmax: 40, Fmin: 24, color: 'rgba(40, 42, 48, 1)'})}
@@ -97,40 +80,9 @@ const HeaderWrapper = styled.div`
     }
   }
 
-
   @media ${theme.media.tablet} {
     ${TitleSectionHeader} {
       line-height: 28px;
-    }
-  }
-`
-
-const ContainerBtn = styled.div`
-  align-self: flex-end;
-  
-  ${StyledSlider} {
-    max-width: 400px;
-    
-    .alice-carousel__next-btn-item, .alice-carousel__prev-btn-item {
-      border: 1px solid rgba(229, 229, 229, 1);
-
-      [data-area] {
-        &::after {
-          content: url(${ArrowGray});
-        }
-      }
-    }
-
-    .alice-carousel__dots {
-      display: none;
-    }
-
-    .alice-carousel__prev-btn {
-      right: 50px;
-    }
-
-    .alice-carousel__next-btn {
-      right: 0;
     }
   }
 `
@@ -205,24 +157,6 @@ const Grid = styled.div`
       grid-column: unset;
     }
   }
-`
-
-
-
-const StyledCountertops = styled.img`
-
-
-`
-
-const StyledWindowSills = styled.img`
-
-`
-
-const StyledSink = styled.img`
-
-`
-const StyledPanel = styled.img`
-
 `
 
 
