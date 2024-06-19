@@ -9,11 +9,14 @@ import {FlexWrapper} from "../../../components/FlexWrapper";
 import {theme} from "../../../styles/Theme.styled";
 import {Slider} from "../../../components/slider/Slider";
 import ArrowGray from '../../../components/assets/images/arrowGray.svg';
-import {ProductCardContainer} from "./productCard/ProductCardContainer";
-
-const items = [<ProductCard/>, <ProductCard/>, <ProductCard/>, <ProductCard/>]
+import {PRODUCTS} from "../../../common/constants/Constants";
 
 export const Sale = () => {
+    const productsCard = PRODUCTS.map(product => {
+        return <ProductCard id={product.id} description={product.description} oldPrice={product.oldPrice}
+                            newPrice={product.newPrice} shortName={product.shortName}/>
+    })
+
     return (
         <StyledShells>
             <Container>
@@ -31,9 +34,9 @@ export const Sale = () => {
                         <CardBlock>
                             <CommonLinkSale text={'смотреть все'} isIcon={true} to={'/catalog'}/>
                             <ProductCardWrapper>
-                                <ProductCardContainer/>
+                                {productsCard}
                             </ProductCardWrapper>
-                            <SliderSale items={items}/>
+                            <SliderSale items={productsCard}/>
                         </CardBlock>
                     </Block>
                 </FlexWrapper>

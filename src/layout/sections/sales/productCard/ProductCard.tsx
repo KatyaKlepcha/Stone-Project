@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {theme} from "../../../../styles/Theme.styled";
 import {CommonLink, Text} from "../../../../components/link/Link";
 import ProductImage from "../../../../components/assets/images/product.png";
+import {Price} from "../../../../components/price/Price";
 
 type ProductCardPropsType = {
     image?: string
@@ -10,17 +11,19 @@ type ProductCardPropsType = {
     description?: string
     newPrice?: number
     oldPrice?: number
+    id: number
 }
 
 export const ProductCard: FC<ProductCardPropsType> =
     ({
+         id,
          image = `${ProductImage}`,
-         oldPrice = '10 000',
-         newPrice = '9 000',
-         description = 'Каминная топка Kratki ZUZIA LPT',
+         oldPrice = 10000,
+         newPrice = 9000,
+         description = 'Каминнаятопка Kratki ZUZIA LPT',
          shortName = 'Kratki',
      }) => {
-
+        console.log('description', description)
         return (
             <StyledProductCard>
                 <ContainerImg><ProductImg src={image} alt={'Product Card'}/></ContainerImg>
@@ -28,11 +31,11 @@ export const ProductCard: FC<ProductCardPropsType> =
                     <Shortly>{shortName}</Shortly>
                     <Product>{description}</Product>
                     <PriceWrapper>
-                        <Price>{newPrice} руб </Price>
-                        <OldPrice> {oldPrice} руб</OldPrice>
+                        <Price price={newPrice} color={`${theme.colors.accent}`} weight={700}/>
+                        <Price price={oldPrice} color={'rgba(148, 153, 129, 1)'} isOldPrice={true} size={'14px'}/>
                     </PriceWrapper>
                 </Description>
-                <LinkCard text={'Подробнее'} to={'/'}/>
+                <LinkCard text={'Подробнее'} to={`/catalog/${id}`}/>
             </StyledProductCard>
         );
     };
@@ -97,20 +100,6 @@ const PriceWrapper = styled.div`
   justify-content: space-between;
   margin-top: 16px;
   align-items: center;
-`
-
-const Price = styled.div`
-  color: ${theme.colors.accent};
-  font-size: 20px;
-  line-height: 23px;
-  font-weight: 700;
-`
-
-const OldPrice = styled.span`
-  color: rgba(148, 153, 129, 1);
-  text-decoration: line-through;
-  font-size: 14px;
-  line-height: 16px;
 `
 
 const LinkCard = styled(CommonLink)`

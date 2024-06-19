@@ -176,7 +176,9 @@ const Mail = styled.span`
 const Address = styled.div`
   align-self: center;
   margin: 20px 0 24px;
-  ${font({lineHeight: '28px', Fmax: 16, Fmin: 13})} @media ${theme.media.tablet} {
+  ${font({lineHeight: '28px', Fmax: 16, Fmin: 13})};
+  
+  @media ${theme.media.tablet} {
     line-height: 15px;
     text-align: center;
     margin: 15px 68px 0;

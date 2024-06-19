@@ -2,11 +2,12 @@ import {createHashRouter, RouterProvider,} from 'react-router-dom'
 import {SectionMain} from "./layout/sections/main/Main";
 import {Advantages} from "./layout/sections/advantages/Advantages";
 import {Ideas} from "./layout/sections/ideas/Ideas";
-import {StoneProducts} from "./layout/sections/stoneProducts/StoneProducts";
+import {StoneProducts} from "./layout/sections/stoneProducts/catalog/stoneProducts/StoneProducts";
 import {Sale} from "./layout/sections/sales/Sale";
 import App from "./App";
 import {Catalog} from "./layout/sections/stoneProducts/catalog/Catalog";
 import {ErrorPage} from "./components/errorPage/ErrorPage";
+import {CardProductPage} from "./layout/sections/stoneProducts/catalog/CardProductPage";
 
 const router = createHashRouter([
     {
@@ -43,6 +44,10 @@ const router = createHashRouter([
             {
                 element: <Catalog />,
                 path: '/catalog',
+            },
+            {
+                element: <CardProductPage />,
+                path: '/catalog/:id',
             }
             ],
     },

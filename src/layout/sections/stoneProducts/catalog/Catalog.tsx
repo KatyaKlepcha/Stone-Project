@@ -8,9 +8,15 @@ import {Breadcrumbs, StyledBreadcrumbs} from "../../../../components/breadcrumbs
 import {Icon} from "../../../../components/icon/Icon";
 import {CommonLink} from "../../../../components/link/Link";
 import {font} from "../../../../styles/Common";
-import {ProductCardContainer} from "../../sales/productCard/ProductCardContainer";
+import {PRODUCTS} from "../../../../common/constants/Constants";
+import {ProductCard} from "../../sales/productCard/ProductCard";
 
 export const Catalog = () => {
+
+    const productsCard = PRODUCTS.map(product => {
+        return <ProductCard id={product.id} description={product.description} oldPrice={product.oldPrice}
+                            newPrice={product.newPrice} shortName={product.shortName}/>
+    })
     return (
         <StyledCatalog>
             <Container>
@@ -45,7 +51,7 @@ export const Catalog = () => {
                             </SelectStone>
                         </SelectStoneBlock>
                         <ProductWrapper>
-                            <ProductCardContainer/>
+                            {productsCard}
                         </ProductWrapper>
                         <CommonLink to={'/catalog'} text={'показать ещё'} color={'rgba(40, 42, 48, 1)'} isIcon={true}/>
                     </Wrapper>

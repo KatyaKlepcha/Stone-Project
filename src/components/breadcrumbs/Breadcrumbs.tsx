@@ -1,45 +1,61 @@
-import React from 'react';
-import {Link, useLocation} from 'react-router-dom';
-import {Icon} from "../icon/Icon";
+import useBreadcrumbs from "use-react-router-breadcrumbs";
+import {PRODUCTS} from "../../common/constants/Constants";
+import {NavLink} from "react-router-dom";
 import styled from "styled-components";
+import {Icon} from "../icon/Icon";
 import {theme} from "../../styles/Theme.styled";
 
+const DynamicUserBreadcrumb = ({match}: { match: any }) => {
+    const catalogId = match.params.catalogId;
+    const currentCatalog = PRODUCTS.find(product => product.id === +catalogId)
+
+    return (
+        <span>{currentCatalog?.description}</span>
+    );
+}
+
+
+const routes = [
+    {path: "/catalog/:catalogId", breadcrumb: DynamicUserBreadcrumb},
+];
+
 export const Breadcrumbs = () => {
-    const location = useLocation();
-    const pathNames: string[] = location.pathname.split('/').filter((pathName: string) => pathName);
+    const breadcrumbs = useBreadcrumbs(routes);
+
 
     return (
         <StyledBreadcrumbs>
-            <Link to="/">Главная</Link>
-            {pathNames.map((pathName, index) => {
-                const url = `/${pathNames.slice(0, index + 1).join('/')}`;
-                return (
-                    <span key={url}>
-                        <Icon iconId={'arrowList'} width={'5'} height={'10'}/>
-                        <Link to={url}>{pathName}</Link>
-                    </span>
-                );
-            })}
+            {breadcrumbs.map(({match, breadcrumb}) => (
+                <NavLink key={match.pathname} to={match.pathname}>
+                    {breadcrumb}
+                    <Icon iconId={'arrowList'} width={'5'} height={'10'}/>
+                </NavLink>
+            ))}
         </StyledBreadcrumbs>
     );
 };
 
 export const StyledBreadcrumbs = styled.div`
+  padding: 24px 0 28px;
 
   a {
     font-size: 16px;
     line-height: 18px;
     color: ${theme.colors.accent};
+    margin-right: 10px;
 
+    span {
+      margin-right: 5px;
+    }
 
     &:first-child {
-      margin-right: 10px;
       color: rgba(156, 156, 156, 1);
     }
 
-    &:not(:first-child) {
-      margin-left: 8px;
+    &:last-child {
+      svg {
+        display: none;
+      }
     }
   }
-
 `

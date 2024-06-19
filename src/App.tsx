@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {Footer} from "./layout/footer/Footer";
 import {Form} from "./layout/sections/form/Form";
 import {Outlet} from "react-router-dom";
-import {StoneProducts} from "./layout/sections/stoneProducts/StoneProducts";
+import {StoneProducts} from "./layout/sections/stoneProducts/catalog/stoneProducts/StoneProducts";
 
 function App() {
     return (
