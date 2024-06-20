@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/Stone-Project/static/css/main.98dbe978.css",
+    "main.js": "/Stone-Project/static/js/main.e810d062.js",
+    "static/js/787.25eaef86.chunk.js": "/Stone-Project/static/js/787.25eaef86.chunk.js",
+    "static/media/ProductPicture.png": "/Stone-Project/static/media/ProductPicture.ec50ee4c6bcf7bbcdb56.png",
+    "static/media/shells.png": "/Stone-Project/static/media/shells.1b10d7025fbc00462836.png",
+    "static/media/Countertops.png": "/Stone-Project/static/media/Countertops.491d007e3c79b41923f5.png",
+    "static/media/Idea1.png": "/Stone-Project/static/media/Idea1.491d007e3c79b41923f5.png",
+    "static/media/Idea4.png": "/Stone-Project/static/media/Idea4.595cf3050c16e2bdb86a.png",
+    "static/media/Idea2.png": "/Stone-Project/static/media/Idea2.cfb2787f43ea3a76304f.png",
+    "static/media/Idea5.png": "/Stone-Project/static/media/Idea5.0cee2780f9d96e68fcc6.png",
+    "static/media/AdvantagesIcon.png": "/Stone-Project/static/media/AdvantagesIcon.2fc183d1c30ac7dcd3b4.png",
+    "static/media/Rectangle.png": "/Stone-Project/static/media/Rectangle.a3bbe45ca0162891b181.png",
+    "static/media/Idea3.png": "/Stone-Project/static/media/Idea3.bffdfab95d4a1fac328d.png",
+    "static/media/BgFormImg.png": "/Stone-Project/static/media/BgFormImg.d69ebb8eba1ec9dd3802.png",
+    "static/media/windowSills.png": "/Stone-Project/static/media/windowSills.26c84ecb9b7c5dc4ecef.png",
+    "static/media/panel.png": "/Stone-Project/static/media/panel.4d89ecd3cf295f7d3d3f.png",
+    "static/media/icons-sprite.svg": "/Stone-Project/static/media/icons-sprite.799b1f28b03bc97bb6441cde515c5de8.svg",
+    "static/media/product.png": "/Stone-Project/static/media/product.225dc5416d46a39dc182.png",
+    "static/media/logo.svg": "/Stone-Project/static/media/logo.b971d2367d3c47d35c5f29af59cf7d24.svg",
+    "index.html": "/Stone-Project/index.html",
+    "static/media/arrow.svg": "/Stone-Project/static/media/arrow.d8ab888122beae3b46118f497c3d0f8c.svg",
+    "static/media/arrowGray.svg": "/Stone-Project/static/media/arrowGray.fbe96f3ddcf09aba471bdc2501258c38.svg",
+    "main.98dbe978.css.map": "/Stone-Project/static/css/main.98dbe978.css.map",
+    "main.e810d062.js.map": "/Stone-Project/static/js/main.e810d062.js.map",
+    "787.25eaef86.chunk.js.map": "/Stone-Project/static/js/787.25eaef86.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98dbe978.css",
+    "static/js/main.e810d062.js"
+  ]
+}
